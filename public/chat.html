@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en" ng-app="chat">
+<head>
+	<title>NodeJS Chat</title>
+
+	<link rel="stylesheet" href="./styles/main.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+	      integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+	      integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+	<script src="https://code.jquery.com/jquery-2.2.4.js"></script>
+	<script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.3.1/ui-bootstrap.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.3.1/ui-bootstrap-tpls.js"></script>
+	<script type="text/javascript">
+		window.name = 'NG_DEFER_BOOTSTRAP!';
+	</script>
+</head>
+<body ng-cloak style="padding: 40px; background-image: url('laptop.jpg');">
+
+<div ng-controller="RoomsScreenController" ng-if="$root.currentView=='rooms'">
+
+	<div ng-repeat="room in rooms">
+		<div class="col-md-4 chats">
+			<button class="chatBtn" ng-click="enterRoom(room)">
+				<h3><b>{{room.name}}</b></h3>({{room.membersCount}})
+			</button>
+		</div>
+	</div>
+	<script type="text/ng-template" id="nickname-popup-template">
+		<div class="modal-header">
+			<h3 class="modal-title" id="modal-title">Enter Nickname</h3>
+		</div>
+		<div class="modal-body" id="modal-body">
+			<form ng-submit="submitNickname()">
+				<fieldset ng-disabled="working">
+					<div class="row">
+						<div class="form-group col-xs-12">
+							<label>Nickname</label>
+							<input type="text" class="form-control" placeholder="Enter Nickname" ng-model="nickname">
+						</div>
+					</div>
+					<input type="submit" class="hidden">
+				</fieldset>
+			</form>
+		</div>
+		<div class="modal-footer">
+			<button class="btn btn-success" type="button" ng-click="submitNickname()" ng-disabled="working">OK</button>
+			<button class="btn btn-primary" type="button" ng-click="close()" ng-disabled="working">Close</button>
+		</div>
+	</script>
+</div>
+
+
+<div ng-controller="ChatScreenController" ng-if="$root.currentView=='chat'">
+	<div class="row">
+		<div class="col-md-4"></div>
+		<div class="col-md-4 chatContainer" style="height: 600px; overflow-y: scroll; border: 1px solid black;">
+			<div ng-repeat="m in messages" style="padding: 5px;">
+				<div ng-if="m.user.me" class="text-success text-right">
+				<span class="myMsg">
+					 {{m.message}}
+				</span>
+				</div>
+				<div ng-if="!m.user.me" class="text-info text-left">
+				<span class="newMsg">
+					<b>{{m.user.nickname}}::</b> {{m.message}}
+				</span>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4"></div>
+	</div>
+	<div style="margin-top: 10px;">
+		<form ng-submit="sendMessage()">
+			<fieldset>
+				<div class="row">
+					<div class="col-xs-4"></div>
+					<div class="col-xs-4">
+						<input type="text" class="form-control" placeholder="Enter Message" ng-model="message">
+					</div>
+					<div class="col-xs-4">
+						<button class="btn btn-success" type="submit">SEND</button>
+					</div>
+				</div>
+			</fieldset>
+		</form>
+	</div>
+</div>
+
+<script src="scripts/app.js"></script>
+<script src="scripts/services/socket.js"></script>
+<script src="scripts/services/rooms.js"></script>
+<script src="scripts/services/chat.js"></script>
+<script src="scripts/controllers/screens/rooms-controller.js"></script>
+<script src="scripts/controllers/screens/chat-controller.js"></script>
+</body>
+</html>

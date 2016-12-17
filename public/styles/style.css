@@ -1,6 +1,8 @@
 body {
     background-color: black;
     overflow-x:hidden;
+    margin:0;
+    padding:0;
 
 }
 *{
@@ -180,7 +182,7 @@ video{
 }
 
 #cht{
-    background-color: floralwhite;
+    background-color: darkgrey;
     padding-top: 30px;
 }
 h1{
@@ -217,11 +219,14 @@ h1{
 
 
 
+
 }
 img{
     width: 100%;
     position: relative;
-    opacity: 0.9    ;
+
+
+
 }
 #ab{
     position: absolute;
@@ -229,6 +234,8 @@ img{
     top:50px;
     font-family: "Marck Script";
     font-size: 26px;
+    color:red;
+    font-weight: 900;
 }
 #last{
     width: 100%;
@@ -274,7 +281,7 @@ img{
 
 }
 .box1{
-    color: #f3f3f3;
+    color: firebrick;
     position: absolute;
     top:-350px;
     font-size: 30px;
@@ -376,6 +383,7 @@ img{
     position: relative;
     height: 100%;
     top:-200px;
+
 }
 #icon{
     position: absolute;
@@ -402,5 +410,6 @@ img{
     z-index: 0;
 }
 #lol{
-padding-bottom: -1000px;
+    margin:0;
+    padding:0;
 }

@@ -10,7 +10,7 @@
 				rooms: [],
 
 				initialize: function () {
-					$socket.on('rooms.load', this._handleRoomsList.bind(this));
+					$socket.on('rooms.load', this._handleRoomsList.bind(this)); //function in bottom
 					$socket.on('rooms.enter.success', this._handleRoomsEnterSuccess.bind(this));
 					return this;
 				},
@@ -23,9 +23,9 @@
 					$socket.send('rooms.enter', {room: room.id, nickname: nickName});
 				},
 
-				_handleRoomsList: function (data) {
+				_handleRoomsList: function (data) { // ???????????????
 					$rootScope.$apply(function () {
-						console.info("Rooms Loaded", data);
+						console.log("Rooms Loaded", data);
 						this.rooms.splice.apply(this.rooms, [0, data.length].concat(data));
 					}.bind(this));
 				},

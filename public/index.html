@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" type="text/css" href="./styles/style.css">
+    <link rel="stylesheet" type="text/css" href="styles/style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/jquery.typeit/4.3.0/typeit.min.js"></script>
+    <title>WNTC</title>
 </head>
 <body onload="myFunction()" style="margin:0;">
 <div id="loader"></div>
@@ -12,16 +13,16 @@
     <div id="imp">
         <div id="top">
             <div id="main" ng-app>
-ht
 
-                <nav class="{{active}}" ng-mouseover="$event.preventDefault()">
+
+                <nav class="{{active}}" >
 
                     <a href="#imp" class="home" ng-mouseenter="active='home'" ng-mouseleave="active='home2'">Home</a>
 
                     <a href="#cht" class="projects" ng-mouseenter="active='projects'"
-                       ng-mouseleave="active='projects2'">Chats</a>
+                       ng-mouseleave="active='projects2'">About Us</a>
                     <a href="#about" class="services" ng-mouseenter="active='services'"
-                       ng-mouseleave="active='services2'">About</a>
+                       ng-mouseleave="active='services2'">Chat History</a>
                     <a href="#last" class="contact" ng-mouseenter="active='contact'" ng-mouseleave="active='class2'">Contact
                         Us</a>
 
@@ -34,118 +35,95 @@ ht
         <h1>Why Not To Chat</h1>
 
         <div id="myDiv"></div>
-            <a href="/chat">
-                <div id="klor">
-                    <h1 id="mech">Start Chatting</h1>
-                </div>
-            </a>
-        </div>
-        <script>
-
-
-            $('#myDiv').typeIt({
-                strings: ["This is a great string.", "But here is a better one.", "Keep Calm Man"],
-                speed: 170,
-                breakLines: false,
-                autoStart: true,
-                loop: true,
-                loopCount: false
-
-
-            }).css({"font-family": "Comic Sans MS", "font-size": "100px"});
-
-        </script>
-
-        <div id="back">
-            <div id="vid">
-                <video id="myVideo" autoplay loop muted>
-                    <source src="AUA.mp4" type="video/mp4"/>
-                </video>
+        <a href="/chat">
+            <div id="klor">
+                <h1 id="mech">Start Chatting</h1>
             </div>
+        </a>
+    </div>
+    <script>
 
 
-        </div>
-        <div id="cht">
-
-            <div class="fin2">
-                <div class="chats1">
-                    <p class="box1">    Lorem Ipsum<br>   is simply </br>   dummy text</p>
-                </div>
-                <div class="chats2"></div>
-                <div class="chats3"></div>
-            </div>
-            <div class="fin3">
-                <div class="chats1"></div>
-                <div class="chats2"></div>
-                <div class="chats3"></div>
-            </div>
-        </div>
-        <div id="gic"></div>
-        <div id="about">
-            <img src="./styles/giff.gif"/>
-            <h1 id="ab">sfbsifhaosadasdasdasfbsif
-                haosadasdasdasdasdsdoasfbsifhaosadasdasdasdasdsdoasdasdsd
-                asfbsifhaosadasdasdasdasdsdo
-                asfbsifhaosadasdasdasdasdsdo
-                asfbsifhaosadasdasdasdasdsdo
-                asfbsifhaosadasdasdasdasdsdo
-                asfbsifhaosadasdasdasdasdsdoasfbsifhaosadasdasdasdasdsdo
-                asfbsifhaosadasdasdasdasdsdosfbsifhaosadasdasdasfbsif
-                haosadasdasdasdasdsdoasfbsifhaosadasdasdasdasdsdoasdasdsd
-                asfbsifhaosadasdasdasdasdsdo
-                asfbsifhaosadasdasdasdasdsdo
-                asfbsifhaosadasdasdasdasdsdo
-                asfbsifhaosadasdasdasdasdsdo
-                asfbsifhaosadasdasdasdasdsdoasfbsifhaosadasdasdasdasdsdo
-                asfbsifhaosadasdasdasdasdsdosfbsifhaosadasdasdasfbsif
-                haosadasdasdasdasdsdoasfbsifhaosadasdasdasdasdsdoasdasdsd
-                asfbsifhaosadasdasdasdasdsdo
-                asfbsifhaosadasdasdasdasdsdo
-                asfbsifhaosadasdasdasdasdsdo
-                asfbsifhaosadasdasdasdasdsdo
-                asfbsifhaosadasdasdasdasdsdoasfbsifhaosadasdasdasdasdsdo
-                asfbsifhaosadasdasdasdasdsdosfbsifhaosadasdasdasfbsif
-                haosadasdasdasdasdsdoasfbsifhaosadasdasdasdasdsdoasdasdsd
-                asfbsifhaosadasdasdasdasdsdo
-                asfbsifhaosadasdasdasdasdsdo
-                asfbsifhaosadasdasdasdasdsdo
-                asfbsifhaosadasdasdasdasdsdo
-                asfbsifhaosadasdasdasdasdsdoasfbsifhaosadasdasdasdasdsdo
-                asfbsifhaosadasdasdasdasdsdosfbsifhaosadasdasdasfbsif
-                haosadasdasdasdasdsdoasfbsifhaosadasdasdasdasdsdoasdasdsd
-                asfbsifhaosadasdasdasdasdsdo
-                asfbsifhaosadasdasdasdasdsdo
-                asfbsifhaosadasdasdasdasdsdo
-                asfbsifhaosadasdasdasdasdsdo
-                asfbsifhaosadasdasdasdasdsdoasfbsifhaosadasdasdasdasdsdo
-                asfbsifhaosadasdasdasdasdsdo</h1>
-        </div>
-        <div id="prosto"></div>
-        <div id="last">
-            <div id="nkar">
-                <img id="pic" src="tele.jpg"/>
+        $('#myDiv').typeIt({
+            strings: ["Welcome to 'Why not to chat'.", "We have just one question....", "That is : Why not to chat, HUH? :)"],
+            speed: 150,
+            breakLines: false,
+            autoStart: true,
+            loop: true,
+            loopCount: false
 
 
-                <div id="icon">
-                    <a id="babe" target="_blank" title="find us on Facebook"
-                       href="https://www.facebook.com/WNTC2016/"><img id="fb" alt="follow me on facebook"
-                                                                      src="//login.create.net/images/icons/user/facebook_40x40.png"
-                                                                      border=0></a>
-                    <a id="bob" target="_blank" title="find us on Youtube"
-                       href="https://www.youtube.com/channel/UCTUFkutodrtGfe5mQqUdyRA"><img id="yt"
-                                                                                            alt="follow me on youtube"
-                                                                                            src="https://www.seeklogo.net/wp-content/uploads/2016/06/YouTube-icon-400x400.png"
-                                                                                            border=0></a>
-                </div>
-                <div id="text">
-                    <h1 id="gir">Find Us We Are EveryWhere</h1>
+        }).css({"font-family": "Comic Sans MS", "font-size": "100px"});
 
-                </div>
-            </div>
+    </script>
+
+    <div id="back">
+        <div id="vid">
+            <video id="myVideo" autoplay loop muted>
+                <source src="AUA.mp4" type="video/mp4"/>
+            </video>
         </div>
 
 
     </div>
+    <div id="cht">
+
+        <div class="fin2">
+            <div class="chats1">
+                <p class="box1">    No Adds & Viruses  </p>
+            </div>
+            <div class="chats2">
+                <p class="box1">        Alternative Space For Relations</p>
+            </div>
+            <div class="chats3">
+                <p class="box1">        Different Topics Of AUA</p>
+            </div>
+        </div>
+        <div class="fin3">
+            <div class="chats1">
+                <p class="box1">Innovative & Impressing Themes</p>
+            </div>
+            <div class="chats2">
+                <p class="box1">Fast & Comfortable</p>
+            </div>
+            <div class="chats3">
+                <p class="box1">Step to The   Future</p>
+            </div>
+        </div>
+    </div>
+    <div id="gic"></div>
+    <div id="about">
+        <img src="styles/giff.gif"/>
+        <h1 id="ab">Online chat may refer to any kind of communication over the Internet that offers a real-time transmission of text messages from sender to receiver. Chat messages are generally short in order to enable other participants to respond quickly. Thereby, a feeling similar to a spoken conversation is created, which distinguishes chatting from other text-based online communication forms such as Internet forums and email. Online chat may address point-to-point communications as well as multicast communications from one sender to many receivers and voice and video chat, or may be a feature of a web conferencing service.
+
+            Online chat in a less stringent definition may be primarily any direct text-based or video-based (webcams), one-on-one chat or one-to-many group chat (formally also known as synchronous conferencing), using tools such as instant messengers, Internet Relay Chat (IRC), talkers and possibly MUDs. The expression online chat comes from the word chat which means "informal conversation". Online chat includes web-based applications that allow communication – often directly addressed, but anonymous between users in a multi-user environment. Web conferencing is a more specific online service, that is often sold as a service, hosted on a web server controlled by the vendor.</h1>
+    </div>
+    <div id="prosto"></div>
+    <div id="last">
+        <div id="nkar">
+            <img id="pic" src="tele.jpg"/>
+
+
+            <div id="icon">
+                <a id="babe" target="_blank" title="find us on Facebook"
+                   href="https://www.facebook.com/WNTC2016/"><img id="fb" alt="follow me on facebook"
+                                                                  src="//login.create.net/images/icons/user/facebook_40x40.png"
+                                                                  border=0></a>
+                <a id="bob" target="_blank" title="find us on Youtube"
+                   href="https://www.youtube.com/channel/UCTUFkutodrtGfe5mQqUdyRA"><img id="yt"
+                                                                                        alt="follow me on youtube"
+                                                                                        src="https://www.seeklogo.net/wp-content/uploads/2016/06/YouTube-icon-400x400.png"
+                                                                                        border=0></a>
+            </div>
+            <div id="text">
+                <h1 id="gir">Find Us We Are EveryWhere</h1>
+
+            </div>
+        </div>
+    </div>
+
+
+</div>
 
 </div>
 

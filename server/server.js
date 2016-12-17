@@ -18,17 +18,18 @@ io.on('connection', function (socket) {
 	chat.addUser(socket);
 });
 
-http.listen(4000, function () {
-	console.log('listening on *:4000');
+http.listen(3000, function () {
+	console.log('listening on *:3000');
 });
 
 
 function ChatManager() {
 
 	this._init = function () {
-		this._incr = 0;
+		this._incr = 0; // id of users
 		this._users = {};
 		this._rooms = {};
+		// addRoom function and Room class
 		this.addRoom(new Room("Calculus", 1));
 		this.addRoom(new Room("Discrete Math", 2));
 		this.addRoom(new Room("Intro to CS", 3));
@@ -38,13 +39,13 @@ function ChatManager() {
 	};
 
 	this.addUser = function (socket) {
-		var user = new User((++this._incr), socket, this);
+		var user = new User((++this._incr), socket, this); //User class // this -> chat
 		this._users[user.id] = user;
 		console.log("Connected User " + user.id);
 		socket.on('disconnect', function () {
 			console.log("User " + user.id + " disconnected");
 			if (user.room) {
-				user.room.removeUser(user);
+				user.room.removeUser(user); // function removeUser
 			}
 			delete this._users[user.id];
 		}.bind(this));
@@ -78,9 +79,9 @@ function User(id, socket, chat) {
 	};
 
 	this._initializeListeners = function () {
-		this._socket.on('rooms.load', this._handleLoadRoomsEvent.bind(this));
-		this._socket.on('rooms.enter', this._handleRoomEnter.bind(this));
-		this._socket.on('room.message.send', this._handleRoomMessage.bind(this));
+		this._socket.on('rooms.load', this._handleLoadRoomsEvent.bind(this)); //handleLoadRoomsEvent function
+		this._socket.on('rooms.enter', this._handleRoomEnter.bind(this)); // handleRoomEnter function
+		this._socket.on('room.message.send', this._handleRoomMessage.bind(this)); // handleRoomMessage function
 	};
 
 	this.sendChatMessage = function (user, message) {
@@ -114,8 +115,8 @@ function User(id, socket, chat) {
 	};
 
 	this._handleRoomMessage = function (msg) {
-		if (this.room) {
-			this.room.sendMessage(this, msg.message);
+		if (this.room) { // if user is in room
+			this.room.sendMessage(this, msg.message); //user
 		}
 	};
 
@@ -151,7 +152,11 @@ function Room(name, id) {
 
 	this.sendMessage = function (user, message) {
 		for (var id in this._users) {
-			this._users[id].sendChatMessage(user, message);
+			if (message !== '') {
+				this._users[id].sendChatMessage(user, message);
+			} else {
+				console.log('wrong message')
+			}
 		}
 	};
 
